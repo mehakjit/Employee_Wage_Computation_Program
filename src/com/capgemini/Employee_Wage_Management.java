@@ -1,28 +1,30 @@
 package com.capgemini;
 
 public class Employee_Wage_Management {
-
+	public static final int Full_time = 1;
+	public static final int Part_time = 2;
+	public static final int Emp_Rate = 20;
+	public static final int No_of_Days = 20;
+	
 	public static void main(String[] args) {
-		int Full_time = 1;
-		int Part_time = 2;
-		int Emp_Rate = 20;
 		int hours = 0;
 		int Wage = 0;
+		int Total_Wage = 0;
+		for(int day = 1; day < No_of_Days + 1 ; day++) {
 		int empCheck = (int) Math.floor(Math.random()*10)%3;
 		switch (empCheck) {
-		case 1:
+		case Full_time:
 			hours = 8;
-			System.out.println("Employee was present full time and therefore wage for 8 hours will be provided");
 			break;
-		case 2:
+		case Part_time:
 			hours = 4;
-			System.out.println("Employee was present part time and therefore wage for 4 hours will be provided");
 			break;
 		default: 
 			hours = 0;
-			System.out.println("Employee was Absent therefore no wage will be provided");
 		}
-			
 		Wage = hours*Emp_Rate;
-		System.out.println("Employee wage for the day is " + Wage);
-		}}
+		Total_Wage += Wage;
+		System.out.println("On day " + day + " Employee wage will be " + Wage);
+		}
+		System.out.println("Total Wage = " + Total_Wage);
+	}}
